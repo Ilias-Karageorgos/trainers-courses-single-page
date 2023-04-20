@@ -94,8 +94,10 @@ $("#buttonAddTrainer").click(() => {
 
         console.log(trainers);
 
-        
+        $("#tbodyTrainers").empty();
         fillTrainesTable();
+
+       
 
     });
 
@@ -104,13 +106,4 @@ $("#buttonAddTrainer").click(() => {
 
 
 
-$("#buttonEdit").click(() =>  {
-    let templateForm = `  <form id="formEdit">
-                           <input id="editLastname" type="text" name="givenLastname" value="laststname.val()" placeholder="Give new Lastname" />
-                           <input id="editFirstname" type="text" name="givenFirstname" value="firstname.val()" placeholder="Give new Firstname" />
-                           <input id="editAge" type="number" name="givenAge" value="age.val()" placeholder="Give age" />
-                           <input id="submitChanges" type="submit" value="Edit!"/>
-                    
-                       </form>`;
-})
 
