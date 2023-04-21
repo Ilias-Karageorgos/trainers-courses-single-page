@@ -92,16 +92,13 @@ $("#buttonAddTrainer").click(() => {
 
         trainers.push(newTrainer);
 
-        console.log(trainers);
-
         $("#tbodyTrainers").empty();
         fillTrainesTable();
 
        
-
     });
 
-    console.log(trainers);
+    
 });
 
 

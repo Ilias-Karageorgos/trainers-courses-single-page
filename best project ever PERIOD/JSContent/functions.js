@@ -77,25 +77,5 @@ function showTable() {
     })
 }
 
-//ADD TRAINER
 
-//function addNewTrainer() {
-
-    
-    
-//    let lastName = $("#newLastname").val();
-//    let firstName = $("#newFirstname").val();
-//    let age = $("#newAge").val();
-
-//    let newTrainer = {};
-//    newTrainer.lastName = lastName;
-//    newTrainer.firstName = firstName;
-//    newTrainer.age = age;
-
-   
-
-//    trainers.push(newTrainer);
-
-//    fillTrainesTable();
-//}
 
