@@ -12,8 +12,8 @@ function fillTrainesTable() {
                                               <td>${t.firstname}</td>
                                               <td>${t.lastname}</td>
                                               <td>${t.age}</td>
-                                              <td><button onclick="editTrainer(${t.lastname})" type="button" class="btn btn-secondary">edit</button></td>
-                                         </tr>
+                                              <td><button onclick="editTrainer(${t.lastname})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteTrainer(${t.lastname})" type="button" class="btn btn-danger">Delete</button></td>
+                                        </tr>
                                    `;
 
         let eleTrainers = $(templateTrainers);
@@ -33,6 +33,7 @@ function fillCoursesTable() {
                                               <td>${c.type}</td>
                                               <td>${c.startDate}</td>
                                               <td>${c.endDate}</td>
+                                              <td><button onclick="editCourse(${c.title})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse(${c.title})" type="button" class="btn btn-danger">Delete</button></td>
                                          </tr>
                                    `;
 
