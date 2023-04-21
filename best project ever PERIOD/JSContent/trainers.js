@@ -1,4 +1,6 @@
-﻿function trainer(firstname, lastname, age) {
+﻿/// <reference path="../Scripts/jquery-3.6.4.js" />
+
+function trainer(firstname, lastname, age) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.age = age;

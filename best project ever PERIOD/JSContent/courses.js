@@ -1,10 +1,13 @@
-﻿function course(title, type, startDate, endDate, trainers) {
+﻿/// <reference path="../Scripts/jquery-3.6.4.js" />
+
+function course(title, type, startDate, endDate, trainers) {
     this.title = title;
     this.type = type;
     this.startDate = startDate;
     this.endDate = endDate;
     this.trainers = trainers;
 }
+
 
 
 let c1 = new course("C#", "Full-time", "2023 / 10 / 01 ", "2023 / 12 / 01", [trainers[0], trainers[5]]);
@@ -15,8 +18,6 @@ let c5 = new course("C++", "Part-time", "2024 / 05 / 01 ", "2023 / 09 / 01", [tr
 
 
 let courses = [c1, c2, c3, c4, c5];
-
-
 
 
 

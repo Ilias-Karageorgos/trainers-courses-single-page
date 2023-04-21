@@ -1,4 +1,7 @@
-﻿//FIllTAbles
+﻿/// <reference path="../Scripts/jquery-3.6.4.js" />
+
+
+//FIllTAbles
 
 function fillTrainesTable() {
 
@@ -9,6 +12,7 @@ function fillTrainesTable() {
                                               <td>${t.firstname}</td>
                                               <td>${t.lastname}</td>
                                               <td>${t.age}</td>
+                                              <td><button onclick="editTrainer(${t.lastname})" type="button" class="btn btn-secondary">edit</button></td>
                                          </tr>
                                    `;
 
@@ -79,3 +83,6 @@ function showTable() {
 
 
 
+function editTrainer() {
+    console.log("afsfa"); 
+}

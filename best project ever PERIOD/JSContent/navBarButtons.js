@@ -1,4 +1,6 @@
-﻿$("#btnTrainersPage").click((e) => {
+﻿/// <reference path="../Scripts/jquery-3.6.4.js" />
+
+$("#btnTrainersPage").click((e) => {
     $("#divCoursesTable").hide();
     $("#divTrainersPerCourseTable").hide();
 
