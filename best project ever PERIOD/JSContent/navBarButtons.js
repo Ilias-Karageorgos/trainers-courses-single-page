@@ -3,9 +3,11 @@
 $("#btnTrainersPage").click((e) => {
     $("#divCoursesTable").hide();
     $("#divTrainersPerCourseTable").hide();
-
+    $("#divAddTrainer").show();
     showTable();
+    
 })
+
 
 $("#btnCoursesPage").click((e) => {
     $("#divTrainersTable").hide();
