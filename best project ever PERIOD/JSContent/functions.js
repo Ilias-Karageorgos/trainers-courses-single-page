@@ -83,7 +83,16 @@ function showTable() {
 }
 
 
+//EDIT TRAINER  NA DO POS VAZO VALUE
 
 function editTrainer() {
-    console.log("afsfa"); 
+    
+let templateForm = `  <form id="editTrainer">
+                           <input id="ownLastname" type="text" name="editedLastname" value=""  />
+                           <input id="ownFirstname" type="text" name="editedFirstname" value=""  />
+                           <input id="ownAge" type="number" name="editedAge" value=""  />
+                           <input id="submitEditTrainer" type="submit" value="Modify"/>
+                    
+                       </form>`;
+    
 }

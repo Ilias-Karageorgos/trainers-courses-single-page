@@ -97,11 +97,8 @@ $("#buttonAddTrainer").click(() => {
 
         $("#tbodyTrainers").empty();
         fillTrainesTable();
+        });
 
-       
-    });
-
-    
 });
 
 //ADD COURSE FORM
@@ -145,9 +142,6 @@ $("#buttonAddCourse").click(() => {
     fillCoursesTable();    
 
     });
-
-
-
 });
 
 
