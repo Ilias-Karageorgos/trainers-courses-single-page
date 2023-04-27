@@ -12,7 +12,7 @@ function fillTrainesTable() {
                                               <td>${t.firstname}</td>
                                               <td>${t.lastname}</td>
                                               <td>${t.age}</td>
-                                              <td><button onclick="editTrainer(${t.lastname})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteTrainer(${t.lastname})" type="button" class="btn btn-danger">Delete</button></td>
+                                              <td><button onclick="editTrainer(${t.id})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteTrainer()" type="button" class="btn btn-danger">Delete</button></td>
                                         </tr>
                                    `;
 
@@ -33,7 +33,7 @@ function fillCoursesTable() {
                                               <td>${c.type}</td>
                                               <td>${c.startDate}</td>
                                               <td>${c.endDate}</td>
-                                              <td><button onclick="editCourse(${c.title})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse(${c.title})" type="button" class="btn btn-danger">Delete</button></td>
+                                              <td><button onclick="editCourse()" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse()" type="button" class="btn btn-danger">Delete</button></td>
                                          </tr>
                                    `;
 
@@ -85,14 +85,37 @@ function showTable() {
 
 //EDIT TRAINER  NA DO POS VAZO VALUE
 
-function editTrainer() {
+function editTrainer(id) {
+    
+
+   let trainer = trainers.filter(trainer => trainer.id == id )[0];
+
     
 let templateForm = `  <form id="editTrainer">
-                           <input id="ownLastname" type="text" name="editedLastname" value=""  />
-                           <input id="ownFirstname" type="text" name="editedFirstname" value=""  />
-                           <input id="ownAge" type="number" name="editedAge" value=""  />
+                           <input id="ownLastname" type="text" name="editedLastname" value="${trainer.lastname}"  />
+                           <input id="ownFirstname" type="text" name="editedFirstname" value="${trainer.firstname}"  />
+                           <input id="ownAge" type="number" name="editedAge" value="${trainer.age}"  />
                            <input id="submitEditTrainer" type="submit" value="Modify"/>
                     
                        </form>`;
+
+
+    $("#divAddTrainer").append(templateForm);
+
+
+//// POS NA ALLAKSO TA PROPERTIES TOU OBJECT META TO SUBMIT STO MODIFY
+
+    $("#submitEditTrainer").click((e) => {
+        e.preventDefault();
+    
+        let firstname = trainer.fistname = $("#editedFirstname").val();
+        trainer.lastname = $("#editedLastname").val();
+        trainer.age = $("#editedAge").val();
+
+      
+
+    })                  
     
 }
+
+
