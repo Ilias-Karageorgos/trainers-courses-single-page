@@ -96,7 +96,7 @@ $("#buttonAddTrainer").click(() => {
         trainers.push(newTrainer);
 
         $("#tbodyTrainers").empty();
-        fillTrainesTable();
+        fillTrainersTable();
         });
 
 });

@@ -3,7 +3,7 @@
 
 //FIllTAbles
 
-function fillTrainesTable() {
+function fillTrainersTable() {
 
     for (let t of trainers) {
 
@@ -91,7 +91,7 @@ function editTrainer(id) {
    let trainer = trainers.filter(trainer => trainer.id == id )[0];
 
     
-let templateForm = `  <form id="editTrainer">
+let templateForm = `  <form id="editTrainerForm">
                            <input id="ownLastname" type="text" name="editedLastname" value="${trainer.lastname}"  />
                            <input id="ownFirstname" type="text" name="editedFirstname" value="${trainer.firstname}"  />
                            <input id="ownAge" type="number" name="editedAge" value="${trainer.age}"  />
@@ -108,13 +108,21 @@ let templateForm = `  <form id="editTrainer">
     $("#submitEditTrainer").click((e) => {
         e.preventDefault();
     
-        let firstname = trainer.fistname = $("#editedFirstname").val();
-        trainer.lastname = $("#editedLastname").val();
-        trainer.age = $("#editedAge").val();
+        trainer.firstname = $("#ownFirstname").val();
+        trainer.lastname = $("#ownLastname").val();
+        trainer.age = $("#ownAge").val();
 
-      
+
+
+        $("#tbodyTrainers").empty();
+
+        fillTrainersTable();
+
+        $("#editTrainerForm").hide();
+
 
     })                  
+    
     
 }
 

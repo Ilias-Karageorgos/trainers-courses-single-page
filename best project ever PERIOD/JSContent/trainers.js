@@ -36,7 +36,7 @@ let foo = $(templateTableTrainers);
 
 $("#divTrainersTable").append(foo);
 
-fillTrainesTable();
+fillTrainersTable();
 
 
 
