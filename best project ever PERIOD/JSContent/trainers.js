@@ -24,8 +24,8 @@ let trainers = [t1, t2, t3, t4, t5, t6, t7];
 let templateTableTrainers = `<table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Lastname</th>
                                             <th>Firstname</th>
+                                            <th>Lastname</th>
                                             <th>Age</th>
                                         </tr>
                                     </thead>

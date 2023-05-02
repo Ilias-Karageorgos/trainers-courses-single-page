@@ -1,6 +1,7 @@
 ﻿/// <reference path="../Scripts/jquery-3.6.4.js" />
 
-function course(title, type, startDate, endDate, trainers) {
+function course(id, title, type, startDate, endDate, trainers) {
+    this.id = id;
     this.title = title;
     this.type = type;
     this.startDate = startDate;
@@ -10,11 +11,11 @@ function course(title, type, startDate, endDate, trainers) {
 
 
 
-let c1 = new course("C#", "Full-time", "2023-10-01 ", "2023-12-01", [trainers[0], trainers[5]]);
-let c2 = new course("JavaScript", "Full-time", "2023-07-01 ", "2023-09-01", [trainers[2], trainers[4], trainers[5]]);
-let c3 = new course("Python", "Full-time", "2024-01-01 ", "2024-03-01", [trainers[3], trainers[6]]);
-let c4 = new course("Java", "Part-time", "2024-02-01 ", "2023-06-01", [trainers[0], trainers[1], trainers[2], trainers[3], trainers[4], trainers[5], trainers[6]]);
-let c5 = new course("C++", "Part-time", "2024-05-01 ", "2023-09-01", [trainers[0], trainers[3]]);
+let c1 = new course(1, "C#", "Full-time", "2023-10-01", "2023-12-01", [trainers[0], trainers[5]]);
+let c2 = new course(2, "JavaScript", "Full-time", "2023-07-01", "2023-09-01", [trainers[2], trainers[4], trainers[5]]);
+let c3 = new course(3, "Python", "Full-time", "2024-01-01", "2024-03-01", [trainers[3], trainers[6]]);
+let c4 = new course(4, "Java", "Part-time", "2024-02-01", "2023-06-01", [trainers[0], trainers[1], trainers[2], trainers[3], trainers[4], trainers[5], trainers[6]]);
+let c5 = new course(5, "C++", "Part-time", "2024-05-01", "2023-09-01", [trainers[0], trainers[3]]);
 
 
 let courses = [c1, c2, c3, c4, c5];

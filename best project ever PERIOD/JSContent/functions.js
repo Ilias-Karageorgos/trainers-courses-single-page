@@ -33,7 +33,7 @@ function fillCoursesTable() {
                                               <td>${c.type}</td>
                                               <td>${c.startDate}</td>
                                               <td>${c.endDate}</td>
-                                              <td><button onclick="editCourse()" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse()" type="button" class="btn btn-danger">Delete</button></td>
+                                              <td><button onclick="editCourse(${c.id})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse()" type="button" class="btn btn-danger">Delete</button></td>
                                          </tr>
                                    `;
 
@@ -83,7 +83,7 @@ function showTable() {
 }
 
 
-//EDIT TRAINER  NA DO POS VAZO VALUE
+//EDIT TRAINER  
 
 function editTrainer(id) {
     
@@ -103,8 +103,6 @@ let templateForm = `  <form id="editTrainerForm">
     $("#divAddTrainer").append(templateForm);
 
 
-//// POS NA ALLAKSO TA PROPERTIES TOU OBJECT META TO SUBMIT STO MODIFY
-
     $("#submitEditTrainer").click((e) => {
         e.preventDefault();
     
@@ -120,10 +118,50 @@ let templateForm = `  <form id="editTrainerForm">
 
         $("#editTrainerForm").hide();
 
-
     })                  
     
     
 }
 
 
+//EDIT COURSES
+function editCourse(id) {
+
+let course = courses.filter(course => course.id == id )[0];
+
+
+let templateFormEditCourse = `<form id="editCourseForm">
+                                   <input id="ownTitle" type="text" name="editedTitle" value="${course.title}"  />
+                                   <input id="ownType" type="text" name="editedType" value="${course.type}"  />
+                                   <input id="ownStardDate" type="date" name="editedStardDate" value="${course.startDate}"  />
+                                   <input id="ownEndDate" type="date" name="editedEndDate" value="${course.endDate}"  />
+                                   <input id="submitEditCourse" type="submit" value="Modify"/>
+                    
+                               </form>`;
+
+
+    $("#divAddCourse").append(templateFormEditCourse);
+
+
+            $("#submitEditCourse").click((e) => {
+             e.preventDefault();
+
+             course.title = $("#ownTitle").val();
+             course.type = $("#ownType").val();
+             course.startDate = $("#ownStardDate").val();
+             course.endDate = $("#ownEndDate").val();
+
+             $("#tbodyCourses").empty();
+
+             fillCoursesTable();
+
+             $("#editCourseForm").hide();
+
+            });  
+    
+};
+
+
+
+
+//// DELETE TRAINERS
