@@ -12,7 +12,7 @@ function fillTrainersTable() {
                                               <td>${t.firstname}</td>
                                               <td>${t.lastname}</td>
                                               <td>${t.age}</td>
-                                              <td><button onclick="editTrainer(${t.id})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteTrainer()" type="button" class="btn btn-danger">Delete</button></td>
+                                              <td><button onclick="editTrainer(${t.id})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteTrainer(${t.id})" type="button" class="btn btn-danger">Delete</button></td>
                                         </tr>
                                    `;
 
@@ -165,3 +165,27 @@ let templateFormEditCourse = `<form id="editCourseForm">
 
 
 //// DELETE TRAINERS
+
+function deleteTrainer(id) {
+
+    let trainer = trainers.filter(trainer => trainer.id == id )[0];
+
+
+
+
+   let templateButtons = ` <div id="deleteConfirmation">
+                        <button id="yesDelete" class="btn border border-success"  >I agree to delete ${trainer.lastname} ${trainer.firstname} ?</button>
+                        <button id="noDelete" class="btn border border-danger" >Nevermind</button>
+                        </div>`;
+
+
+     $("#divAddTrainer").append(templateButtons);
+
+    
+
+
+
+///TO DO delete or hide trainer me if else or :;
+    
+    
+}
