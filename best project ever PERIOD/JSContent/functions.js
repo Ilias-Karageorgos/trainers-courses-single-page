@@ -174,7 +174,7 @@ function deleteTrainer(id) {
 
 
    let templateButtons = ` <div id="deleteTrainerConfirmation">
-                        <button id="yesDeleteTrainer" class="btn border border-success"  >I agree to delete Trainer ${trainer.lastname} ${trainer.firstname} ?</button>
+                        <button id="yesDeleteTrainer" class="btn border border-success"  >I agree to delete Trainer <strong> ${trainer.lastname} ${trainer.firstname} </strong> ?</button>
                         <button id="noDeleteTrainer" class="btn border border-danger" >Nevermind</button>
                         </div>`;
 
@@ -185,9 +185,19 @@ function deleteTrainer(id) {
 
 
 
-///TO DO delete or hide trainer me if else or :;
+///TO DO delete or hide trainer me if else or :;  (PENDING)
+
+if ($("#yesDeleteTrainer").click(() => { delete trainer[0];}))   {
+
+}
+
+
+else if ($("#noDeleteTrainer").click(() => {alert("Trainer is not deleted");})) {
+
+
+}
     
-    
+
 }
 
 
@@ -205,7 +215,7 @@ function deleteCourse(id) {
     let course = courses.filter(course => course.id == id)[0];
 
     let templateButtons = ` <div id="deleteCourseConfirmation">
-    <button id="yesDeleteCourse" class="btn border border-success"  >I agree to delete Course ${course.title}?</button>
+    <button id="yesDeleteCourse" class="btn border border-success"  >I agree to delete Course <strong> ${course.title} </strong> ?</button>
     <button id="noDeleteCourse" class="btn border border-danger" >Nevermind</button>
     </div>`;
 
@@ -213,3 +223,6 @@ function deleteCourse(id) {
 $("#divAddCourse").append(templateButtons);
     
 }
+
+//Function to hide trainers or courses.
+
