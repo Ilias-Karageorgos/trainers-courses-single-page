@@ -33,7 +33,7 @@ function fillCoursesTable() {
                                               <td>${c.type}</td>
                                               <td>${c.startDate}</td>
                                               <td>${c.endDate}</td>
-                                              <td><button onclick="editCourse(${c.id})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse()" type="button" class="btn btn-danger">Delete</button></td>
+                                              <td><button onclick="editCourse(${c.id})" type="button" class="btn btn-success">Edit</button> <button onclick="deleteCourse(${c.id})" type="button" class="btn btn-danger">Delete</button></td>
                                          </tr>
                                    `;
 
@@ -173,9 +173,9 @@ function deleteTrainer(id) {
 
 
 
-   let templateButtons = ` <div id="deleteConfirmation">
-                        <button id="yesDelete" class="btn border border-success"  >I agree to delete ${trainer.lastname} ${trainer.firstname} ?</button>
-                        <button id="noDelete" class="btn border border-danger" >Nevermind</button>
+   let templateButtons = ` <div id="deleteTrainerConfirmation">
+                        <button id="yesDeleteTrainer" class="btn border border-success"  >I agree to delete Trainer ${trainer.lastname} ${trainer.firstname} ?</button>
+                        <button id="noDeleteTrainer" class="btn border border-danger" >Nevermind</button>
                         </div>`;
 
 
@@ -187,5 +187,29 @@ function deleteTrainer(id) {
 
 ///TO DO delete or hide trainer me if else or :;
     
+    
+}
+
+
+
+
+
+
+
+
+
+///DELETE COURSES
+
+function deleteCourse(id) {
+    
+    let course = courses.filter(course => course.id == id)[0];
+
+    let templateButtons = ` <div id="deleteCourseConfirmation">
+    <button id="yesDeleteCourse" class="btn border border-success"  >I agree to delete Course ${course.title}?</button>
+    <button id="noDeleteCourse" class="btn border border-danger" >Nevermind</button>
+    </div>`;
+
+
+$("#divAddCourse").append(templateButtons);
     
 }
