@@ -167,38 +167,45 @@ let templateFormEditCourse = `<form id="editCourseForm">
 //// DELETE TRAINERS
 
 function deleteTrainer(id) {
-
-    let trainer = trainers.filter(trainer => trainer.id == id )[0];
-
-
+    
+ let trainer = trainers.filter(trainer => trainer.id == id )[0];
 
 
 
 
-   let templateButtons = ` <div id="deleteTrainerConfirmation">
-                        <button id="yesDeleteTrainer" onclick="deleteTrainerYes(${trainer.id}) class="btn border border-success"  >I agree to delete Trainer <strong> ${trainer.lastname} ${trainer.firstname} </strong> ?</button>
-                        <button id="noDeleteTrainer" onclick="deleteTrainerNo() class="btn border border-danger" >Nevermind</button>
-                        </div>`;
 
 
-     $("#divAddTrainer").append(templateButtons);
+ let templateButtons = ` 
+                      <button id="yesDeleteTrainer" onclick="deleteTrainerYes(${trainer.id})" class="btn border border-success"  >I agree to delete Trainer <strong> ${trainer.lastname} ${trainer.firstname} </strong> ?</button>
+                      <button id="noDeleteTrainer" onclick="deleteTrainerNo()" class="btn border border-danger" >Nevermind</button>
+                      `;
+
+
+   $("#confirmationDeleteButtons").append(templateButtons);
+
+  
+}
+
+///TO DO delete  trainer :;  (PENDING)
+
+function deleteTrainerYes(id) {
+
+
+   let index =  trainers.map(trainer => trainer.id).indexOf(id);
+   
+   trainers.splice(index , 1)
+   
+   $("#tbodyTrainers").empty(); 
+   
+   fillTrainersTable(); 
+   
+   $("#confirmationDeleteButtons").empty();
+   
 
 }
 
-///TO DO delete or hide trainer me if else or :;  (PENDING)
-
-function deleteTrainerYes(id) {
-    
-trainers.findIndex(trainers.splice(id-1,1));
-
-
-$("#tbodyTrainers").empty(); 
-
-fillTrainersTable(); 
-
-$("#deleteTrainerConfirmation").hide()
-
-
+function deleteTrainerNo() {
+    $("#confirmationDeleteButtons").empty();
 }
 
 
