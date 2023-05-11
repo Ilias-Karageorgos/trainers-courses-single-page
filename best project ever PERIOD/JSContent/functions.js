@@ -171,54 +171,37 @@ function deleteTrainer(id) {
  let trainer = trainers.filter(trainer => trainer.id == id )[0];
 
 
-
-
-
-
  let templateButtons = ` 
                       <button id="yesDeleteTrainer" onclick="deleteTrainerYes(${trainer.id})" class="btn border border-success"  >I agree to delete Trainer <strong> ${trainer.lastname} ${trainer.firstname} </strong> ?</button>
                       <button id="noDeleteTrainer" onclick="deleteTrainerNo()" class="btn border border-danger" >Nevermind</button>
                       `;
 
 
-   $("#confirmationDeleteButtons").append(templateButtons);
+   $("#confirmationDeleteTrainerButtons").append(templateButtons);
 
   
 }
 
-///TO DO delete  trainer :;  (PENDING)
 
 function deleteTrainerYes(id) {
 
-
-   let index =  trainers.map(trainer => trainer.id).indexOf(id);
+   console.log(23131);
+   let indexTrainer =  trainers.map(trainer => trainer.id).indexOf(id);
    
-   trainers.splice(index , 1)
+   trainers.splice(indexTrainer, 1);
    
    $("#tbodyTrainers").empty(); 
    
    fillTrainersTable(); 
    
-   $("#confirmationDeleteButtons").empty();
+   $("#confirmationDeleteTrainerButtons").empty();
    
 
 }
 
 function deleteTrainerNo() {
-    $("#confirmationDeleteButtons").empty();
+    $("#confirmationDeleteTrainerButtons").empty();
 }
-
-
-
-    
-
-
-
-
-
-
-
-
 
 
 
@@ -228,12 +211,29 @@ function deleteCourse(id) {
     
     let course = courses.filter(course => course.id == id)[0];
 
-    let templateButtons = ` <div id="deleteCourseConfirmation">
-    <button id="yesDeleteCourse" class="btn border border-success"  >I agree to delete Course <strong> ${course.title} </strong> ?</button>
-    <button id="noDeleteCourse" class="btn border border-danger" >Nevermind</button>
-    </div>`;
+    let templateButtons = ` 
+                               <button id="yesDeleteCourse" onclick="deleteCourseYes(${course.id})" class="btn border border-success"  >I agree to delete Course <strong> ${course.title} </strong> ?</button>
+                               <button id="noDeleteCourse" onclick="deleteCourseNo()" class="btn border border-danger" >Nevermind</button>
+                                 ` ;
 
 
-$("#divAddCourse").append(templateButtons);
+$("#confirmationDeleteCourseButtons").append(templateButtons);
     
+}
+
+function deleteCourseYes(id) {
+    
+    let indexCourse =  courses.map(course => course.id).indexOf(id);
+
+    courses.splice(indexCourse, 1);
+
+    $("#tbodyCourses").empty();
+
+    fillCoursesTable();
+
+    $("#confirmationDeleteCourseButtons").empty();
+}
+
+function deleteCourseNo() {
+    $("#confirmationDeleteCourseButtons").empty();
 }
