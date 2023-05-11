@@ -100,7 +100,9 @@ let templateForm = `  <form id="editTrainerForm">
                        </form>`;
 
 
-    $("#divAddTrainer").append(templateForm);
+    $("#editTrainers").append(templateForm);
+    
+    $("#confirmationDeleteTrainerButtons").empty();
 
 
     $("#submitEditTrainer").click((e) => {
@@ -140,7 +142,9 @@ let templateFormEditCourse = `<form id="editCourseForm">
                                </form>`;
 
 
-    $("#divAddCourse").append(templateFormEditCourse);
+    $("#editCourses").append(templateFormEditCourse);
+
+    $("#confirmationDeleteCourseButtons").empty();
 
 
             $("#submitEditCourse").click((e) => {
@@ -179,7 +183,7 @@ function deleteTrainer(id) {
 
    $("#confirmationDeleteTrainerButtons").append(templateButtons);
 
-  
+   $("#editTrainers").empty();
 }
 
 
@@ -218,6 +222,8 @@ function deleteCourse(id) {
 
 
 $("#confirmationDeleteCourseButtons").append(templateButtons);
+
+$("#editCourses").empty();
     
 }
 
