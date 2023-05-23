@@ -244,42 +244,45 @@ function deleteCourseNo() {
     $("#confirmationDeleteCourseButtons").empty();
 }
 
+
+//PAIRING TRAINERS AND COURSES
+
 $("#buttonPairing").click( () => {
     
+    showTrainersList();
 
+    showCoursesList();
 
-    let templateListCourses = `
-                                         <label for="courseSelectCourse">Choose a <strong>Course</strong>:</label>
-
-                                         <select id="courseSelectCourse" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-                                             <option value="">--Please choose an option--</option>
-                                             <option value="C#">C#</option>
-                                             <option value="Javascript">Javascript</option>
-                                             <option value="Python">Python</option>
-                                             <option value="Java">Java</option>
-                                             <option value="C++">C++</option>
-                                         </select>
-
-                        `;
-
-$('#pairingForms').append(templateListCourses);
-    
-let templateListTrainers = `
-                                <label for="courseSelectTrainer">Choose a <strong>Trainer</strong>:</label>
-
-                                <select id="courseSelectTrainer" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-                                    <option value="">--Please choose an option--</option>
-                                    <option value="${trainer}">${trainer.lastname}</option>
-                                    <option value="Sakellarios">Sakellarios</option>
-                                    <option value="Kesopoulos">Kesopoulos</option>
-                                    <option value="Gouleas">Gouleas</option>
-                                    <option value="Apostolopoulos">Apostolopoulos</option>
-                                    <option value="Patarias">Patarias</option>
-                                    <option value="Karageorgos">Karageorgos</option>
-                                </select>
-
-                            `;
-
-  $('#pairingForms').append(templateListTrainers);
 })
 
+
+function showTrainersList() {
+
+    
+    
+                            let templateListTrainers = `
+                                                            <label for="courseSelectTrainer">Choose a <strong>Trainer</strong>:</label>
+                            
+                                                            <select id="courseSelectTrainer" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+                                                            ${trainers.map(trainer=>`<option value="${trainer}">${trainer.lastname}</option>`)}
+                                                            </select>
+                            
+                                                        `;
+
+
+            $('#pairingForms').append(templateListTrainers);
+     }
+
+function showCoursesList() {
+
+        let templateListCourses = `
+                                                            <label for="courseSelectTrainer">Choose a <strong>Course</strong>:</label>
+                            
+                                                            <select id="courseSelectCourse" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+                                                            ${courses.map(course=>`<option value="${course}">${course.title}</option>`)}
+                                                            </select>
+                            
+                                                        `;
+        
+              $('#pairingForms').append(templateListCourses);                                       
+}
