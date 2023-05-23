@@ -248,10 +248,25 @@ function deleteCourseNo() {
 //PAIRING TRAINERS AND COURSES
 
 $("#buttonPairing").click( () => {
+
+    $("#divCoursesTable").hide();
+    $("#divTrainersTable").hide();
+    $("#divAddCourse").hide();
+    $("#divAddTrainer").hide();
+    
     
     showTrainersList();
 
     showCoursesList();
+
+
+
+
+
+
+let breakPoint = `\n--------------------`
+
+$('#pairingForms').append(breakPoint);
 
 })
 

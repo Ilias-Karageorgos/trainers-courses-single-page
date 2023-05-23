@@ -65,6 +65,8 @@ $("#buttonAddTrainer").click(() => {
     $("#divAddCourse").hide();
 
     $("#divCoursesTable").hide();
+
+    $("#divPairCoursesTrainers").hide();
     
 
     $("#divTrainersPerCourseTable").hide();
@@ -111,6 +113,8 @@ $("#buttonAddCourse").click(() => {
     $("#divTrainersTable").hide();
     
     $("#divTrainersPerCourseTable").hide();
+
+    $("#divPairCoursesTrainers").hide();
 
     let templateForm = `  <form id="formAddCourse">
                            <input id="newTitle" type="text" name="givenTitle" value="" placeholder="Give Title" />
