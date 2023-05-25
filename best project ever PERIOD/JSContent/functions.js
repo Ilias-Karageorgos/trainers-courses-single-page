@@ -45,17 +45,17 @@ function fillCoursesTable() {
 }
 
 function fillTrainersPerCoursesTable() {
-    for (let tc of courses) {
+    for (let course of courses) {
 
         let templateTrainersPerCourse = `
                                                <tr>
-                                                   <th>${tc.title}</th>
-                                                   <th>${tc.trainers.map(x => " " + x.lastname)}</th>
-                                                   <td><button onclick="pairingMethod(${tc.id})" type="button" class="btn btn-success">Pair</button>
+                                                   <th>${course.title}</th>
+                                                   <th>${course.trainers.map(x => " " + x.lastname)}</th>
+                                                   <td><button onclick="pairingMethod(${course.id})" type="button" class="btn btn-success">Pair</button>
                                                </tr>
                                            `;
 
-        tc.trainers.map(x => x.lastname);
+        course.trainers.map(x => x.lastname);
 
 
         let eleTrainersPerCourse = $(templateTrainersPerCourse);
@@ -190,7 +190,7 @@ function deleteTrainer(id) {
 
 function deleteTrainerYes(id) {
 
-   console.log(23131);
+   
    let indexTrainer =  trainers.map(trainer => trainer.id).indexOf(id);
    
    trainers.splice(indexTrainer, 1);
@@ -248,9 +248,9 @@ function deleteCourseNo() {
 
 //PAIRING TRAINERS AND COURSES
 
-function pairingMethod(id) {
+function pairingMethod(courseId) {
 
-    let course = courses.filter(course => course.id == id )[0];
+    let course = courses.filter(course => course.id == courseId )[0];
 
     $("#divCoursesTable").hide();
     $("#divTrainersTable").hide();
@@ -267,14 +267,14 @@ function pairingMethod(id) {
     
     
 
-    showTrainersList(id);
+    showTrainersList(courseId,course);
 
 
 
 
     let templateSubmit = `
 
-    <button id="SubmitPairing" onclick="pairTrainerToCourse()" type="button" class="btn btn-outline-warning">Submit</button>
+    <button id="SubmitPairing" onclick="pairTrainerToCourse()" type="button" class="btn btn-outline-success">Submit</button>
 
       `;
 
@@ -284,36 +284,51 @@ $("#buttonSubmit").append(templateSubmit);
 
 }
 
-                                     
 
 
-function showTrainersList() {
+                               
+
+
+function showTrainersList(courseId,course) {
 
     
     
                             let templateListTrainers = `
                                                             <label for="courseSelectTrainer"></label>
-                            
-                                                            <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example" >
-                                                            ${trainers.map(trainer=>`<option selected value="${trainer.id}">${trainer.lastname}</option>`)}
-                                                            </select>
-                            
-                                                        `;
+                                                            <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example" >`
+
+                                                            for (let trainer of course.trainers) {
+
+                                                                if (course.trainers.map(trainer => trainer.id).includes(trainer.id) ) {
+                                                                templateListTrainers += `<option selected value="${trainer.id}">${trainer.lastname}</option>` 
+                                                                 } else {
+                                                                    templateListTrainers += `<option value="${trainer.id}">${trainer.lastname}</option>`
+                                                                }
+
+                                                                templateListTrainers += `</select>`
+
+                                                                }
+
+                                                                
+
+                                                                $('#pairingForms').append(templateListTrainers);
+                                            }
 
 
-            $('#pairingForms').append(templateListTrainers);
-     }
+                                                            
+                                                           
+
+
+           
+     
 
     
 
 
 
-function pairTrainerToCourse() {
-
-    selectedCourseByUser = $("#selectedCourse").val();
-    selectedTrainerByUser = $("#selectedTrainer").val();
-
-    
 
 
-}
+
+
+  
+
