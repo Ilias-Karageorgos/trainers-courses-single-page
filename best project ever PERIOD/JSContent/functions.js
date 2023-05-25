@@ -51,6 +51,7 @@ function fillTrainersPerCoursesTable() {
                                                <tr>
                                                    <th>${tc.title}</th>
                                                    <th>${tc.trainers.map(x => " " + x.lastname)}</th>
+                                                   <td><button onclick="pairingMethod(${tc.id})" type="button" class="btn btn-success">Pair</button>
                                                </tr>
                                            `;
 
@@ -247,7 +248,7 @@ function deleteCourseNo() {
 
 //PAIRING TRAINERS AND COURSES
 
-$("#buttonPairing").click( () => {
+function pairingMethod(id) {
 
     $("#divCoursesTable").hide();
     $("#divTrainersTable").hide();
@@ -255,21 +256,43 @@ $("#buttonPairing").click( () => {
     $("#divAddTrainer").hide();
     
     
-    showTrainersList();
+    showCoursesList(id);
 
-    showCoursesList();
-
-
+    showTrainersList(id);
 
 
 
 
-let breakPoint = `\n--------------------`
+    let templateSubmit = `
 
-$('#pairingForms').append(breakPoint);
+    <button id="SubmitPairing" onclick="pairTrainerToCourse()" type="button" class="btn btn-outline-warning">Submit</button>
 
-})
+      `;
 
+
+$("#buttonSubmit").append(templateSubmit);
+
+
+}
+
+
+function showCoursesList(id) {
+
+    let indexCourse =  courses.map(course => course.id).indexOf(id);
+
+    courses.splice(indexCourse, 1);
+
+    let templateListCourses = `
+                                                        <label for="courseSelectTrainer">Choose a <strong>Course</strong>:</label>
+                        
+                                                        <select id="selectedCourse" class="form-select" aria-label="multiple select example" >
+                                                        <option value="${course}">${course.title}</option>
+                                                        </select>
+                        
+                                                    `;
+    
+          $('#pairingForms').append(templateListCourses);                                       
+}
 
 function showTrainersList() {
 
@@ -278,8 +301,8 @@ function showTrainersList() {
                             let templateListTrainers = `
                                                             <label for="courseSelectTrainer">Choose a <strong>Trainer</strong>:</label>
                             
-                                                            <select id="courseSelectTrainer" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-                                                            ${trainers.map(trainer=>`<option value="${trainer}">${trainer.lastname}</option>`)}
+                                                            <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example" >
+                                                            ${trainers.map(trainer=>`<option selected value="${trainer.id}">${trainer.lastname}</option>`)}
                                                             </select>
                             
                                                         `;
@@ -288,16 +311,16 @@ function showTrainersList() {
             $('#pairingForms').append(templateListTrainers);
      }
 
-function showCoursesList() {
+    
 
-        let templateListCourses = `
-                                                            <label for="courseSelectTrainer">Choose a <strong>Course</strong>:</label>
-                            
-                                                            <select id="courseSelectCourse" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-                                                            ${courses.map(course=>`<option value="${course}">${course.title}</option>`)}
-                                                            </select>
-                            
-                                                        `;
-        
-              $('#pairingForms').append(templateListCourses);                                       
+
+
+function pairTrainerToCourse() {
+
+    selectedCourseByUser = $("#selectedCourse").val();
+    selectedTrainerByUser = $("#selectedTrainer").val();
+
+    
+
+
 }
