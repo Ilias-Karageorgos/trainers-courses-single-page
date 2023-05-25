@@ -250,13 +250,22 @@ function deleteCourseNo() {
 
 function pairingMethod(id) {
 
+    let course = courses.filter(course => course.id == id )[0];
+
     $("#divCoursesTable").hide();
     $("#divTrainersTable").hide();
     $("#divAddCourse").hide();
     $("#divAddTrainer").hide();
+
+    
+
+    let templateListCourses = ` Please choose Trainer(s) for <strong>${course.title}</strong>:                
+                                                    `;
+    
+          $('#pairingForms').append(templateListCourses);  
     
     
-    showCoursesList(id);
+    
 
     showTrainersList(id);
 
@@ -275,31 +284,15 @@ $("#buttonSubmit").append(templateSubmit);
 
 }
 
+                                     
 
-function showCoursesList(id) {
-
-    let indexCourse =  courses.map(course => course.id).indexOf(id);
-
-    courses.splice(indexCourse, 1);
-
-    let templateListCourses = `
-                                                        <label for="courseSelectTrainer">Choose a <strong>Course</strong>:</label>
-                        
-                                                        <select id="selectedCourse" class="form-select" aria-label="multiple select example" >
-                                                        <option value="${course}">${course.title}</option>
-                                                        </select>
-                        
-                                                    `;
-    
-          $('#pairingForms').append(templateListCourses);                                       
-}
 
 function showTrainersList() {
 
     
     
                             let templateListTrainers = `
-                                                            <label for="courseSelectTrainer">Choose a <strong>Trainer</strong>:</label>
+                                                            <label for="courseSelectTrainer"></label>
                             
                                                             <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example" >
                                                             ${trainers.map(trainer=>`<option selected value="${trainer.id}">${trainer.lastname}</option>`)}
