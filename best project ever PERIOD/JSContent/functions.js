@@ -272,14 +272,14 @@ function pairingMethod(courseId) {
 
 
 
-    let templateSubmit = `
+let templateSubmit = `
 
-    <button id="SubmitPairing" onclick="pairTrainerToCourse()" type="button" class="btn btn-outline-success">Submit</button>
+    <button id="SubmitPairing" onclick="pairTrainerToCourse('${course}')" type="button" class="btn btn-outline-success">Submit</button>
 
       `;
 
 
-$("#buttonSubmit").append(templateSubmit);
+ $("#buttonSubmit").append(templateSubmit);
 
 
 }
@@ -292,7 +292,7 @@ function showTrainersList(course) {
     
                             let templateListTrainers = `
                                                             <label for="courseSelectTrainer"></label>
-                                                            <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example">`
+                                                            <select id="selectedTrainers" class="form-select" multiple aria-label="multiple select example">`
 
                                                             for (let trainer of trainers) {
                                                                 if (course.trainers.map(trainer => trainer.id).includes(trainer.id)) {
@@ -302,14 +302,40 @@ function showTrainersList(course) {
                                                                 }
                                                               }
 
+
                                             templateListTrainers +=`</select>`
                                             $('#pairingForms').append(templateListTrainers);
+}
 
-                                            }
+function pairTrainerToCourse(course) {
+
+    course.trainers = [];
+
+    let updatedCourseTrainers = course.trainers;
+
+    console.log(updatedCourseTrainers);
+
+    let trainersId = $("#selectedTrainers").val();
+
+        // for (const id of trainersId) {
+
+        //     for (let trainer of trainers) {
+            
+        //        if (id == trainer.id) {
+            
+        //         course.trainers.push(trainer);
+
+        //        }
+        //     }
+        // }
 
 
+
+
+}
                                                             
-                                                           
+                                                         
+
 
 
            
