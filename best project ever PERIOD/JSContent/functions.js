@@ -283,29 +283,6 @@ $("#buttonSubmit").append(templateSubmit);
 
 
 }
-
-// function showTrainersList() {
-
-//     tempaltedasdadas = `
-    
-//     <label for="cars">Choose a car:</label>
-
-//     <select id="cars" class="form-select" multiple aria-label="multiple select example>
-//       <option value="volvo">Volvo</option>
-//       <option value="saab">Saab</option>
-//       <option value="vw">VW</option>
-//       <option value="audi" selected>Audi</option>
-//     </select>
-    
-    
-    
-//      `;
-
-
-    
-//                                              $('#pairingForms').append(tempaltedasdadas);
-    
-// }
        
 
 
@@ -315,13 +292,13 @@ function showTrainersList(course) {
     
                             let templateListTrainers = `
                                                             <label for="courseSelectTrainer"></label>
-                                                            <select id="selectedTrainer">`
+                                                            <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example">`
 
-                                                            for (let trainer of course.trainers) {
+                                                            for (let trainer of trainers) {
                                                                 if (course.trainers.map(trainer => trainer.id).includes(trainer.id)) {
                                                                   templateListTrainers += `<option selected value="${trainer.id}" selected>${trainer.lastname}</option>`;
                                                                 } else {
-                                                                  templateListTrainers += `<option value="${trainer.id}">${trainer.lastname}</option>`;
+                                                                    templateListTrainers += `<option value="${trainer.id}" >${trainer.lastname}</option>`;
                                                                 }
                                                               }
 
