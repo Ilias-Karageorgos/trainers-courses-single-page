@@ -267,7 +267,7 @@ function pairingMethod(courseId) {
     
     
 
-    showTrainersList(courseId,course);
+    showTrainersList(course);
 
 
 
@@ -284,34 +284,50 @@ $("#buttonSubmit").append(templateSubmit);
 
 }
 
+// function showTrainersList() {
+
+//     tempaltedasdadas = `
+    
+//     <label for="cars">Choose a car:</label>
+
+//     <select id="cars" class="form-select" multiple aria-label="multiple select example>
+//       <option value="volvo">Volvo</option>
+//       <option value="saab">Saab</option>
+//       <option value="vw">VW</option>
+//       <option value="audi" selected>Audi</option>
+//     </select>
+    
+    
+    
+//      `;
 
 
-                               
+    
+//                                              $('#pairingForms').append(tempaltedasdadas);
+    
+// }
+       
 
 
-function showTrainersList(courseId,course) {
+function showTrainersList(course) {
 
     
     
                             let templateListTrainers = `
                                                             <label for="courseSelectTrainer"></label>
-                                                            <select id="selectedTrainer" class="form-select" multiple aria-label="multiple select example" >`
+                                                            <select id="selectedTrainer">`
 
                                                             for (let trainer of course.trainers) {
-
-                                                                if (course.trainers.map(trainer => trainer.id).includes(trainer.id) ) {
-                                                                templateListTrainers += `<option selected value="${trainer.id}">${trainer.lastname}</option>` 
-                                                                 } else {
-                                                                    templateListTrainers += `<option value="${trainer.id}">${trainer.lastname}</option>`
+                                                                if (course.trainers.map(trainer => trainer.id).includes(trainer.id)) {
+                                                                  templateListTrainers += `<option selected value="${trainer.id}" selected>${trainer.lastname}</option>`;
+                                                                } else {
+                                                                  templateListTrainers += `<option value="${trainer.id}">${trainer.lastname}</option>`;
                                                                 }
+                                                              }
 
-                                                                templateListTrainers += `</select>`
+                                            templateListTrainers +=`</select>`
+                                            $('#pairingForms').append(templateListTrainers);
 
-                                                                }
-
-                                                                
-
-                                                                $('#pairingForms').append(templateListTrainers);
                                             }
 
 
