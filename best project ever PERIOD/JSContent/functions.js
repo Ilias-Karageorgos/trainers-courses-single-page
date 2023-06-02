@@ -274,7 +274,7 @@ function pairingMethod(courseId) {
 
 let templateSubmit = `
 
-    <button id="SubmitPairing" onclick="pairTrainerToCourse('${course}')" type="button" class="btn btn-outline-success">Submit</button>
+    <button id="SubmitPairing" onclick="pairTrainerToCourse('${course.trainers}')" type="button" class="btn btn-outline-success">Submit</button>
 
       `;
 
@@ -307,34 +307,48 @@ function showTrainersList(course) {
                                             $('#pairingForms').append(templateListTrainers);
 }
 
-function pairTrainerToCourse(course) {
+function pairTrainerToCourse(courseTrainers) {
 
-    course.trainers = [];
+    courseTrainers = [];
 
-    let updatedCourseTrainers = course.trainers;
-
-    console.log(updatedCourseTrainers);
 
     let trainersId = $("#selectedTrainers").val();
+    
 
-        // for (const id of trainersId) {
+        for (let id of trainersId) {
 
-        //     for (let trainer of trainers) {
+            for (let trainer of trainers) {
             
-        //        if (id == trainer.id) {
+               if (id == trainer.id) {
             
-        //         course.trainers.push(trainer);
+                courseTrainers.push(trainer);
 
-        //        }
-        //     }
-        // }
+               }
+            }
+        
+        }
+
+        console.log(courseTrainers);
 
 
 
+        $("#tbodyCourses").empty();
+
+         amendTrainersPerCourse(courses);
+
+        
 
 }
                                                             
-                                                         
+        function amendTrainersPerCourse(courses) {
+
+            for (let trainer of trainers) {
+
+                courses.trainers = $("#selectedTrainers").val();
+
+            }
+            
+        }                                                
 
 
 
